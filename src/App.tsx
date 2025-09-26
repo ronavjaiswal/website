@@ -5,8 +5,18 @@ import {
   ChevronRight, Sparkles,
 } from "lucide-react";
 import { Card, CardContent } from "./components/ui/card";
-import { Button, buttonVariants } from "./components/ui/button";
+import { Button } from "./components/ui/button";
 import { Badge } from "./components/ui/badge";
+
+// ---- Local button styles (shadcn-like) ----
+const btn =
+  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors " +
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 " +
+  "h-10 px-4 py-2 bg-primary text-primary-foreground hover:bg-primary/90";
+const btnOutline =
+  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors " +
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 " +
+  "h-10 px-4 py-2 border border-input bg-background hover:bg-accent hover:text-accent-foreground";
 
 // ---------- Smooth scroll helper ----------
 const smoothScrollTo = (id: string) => {
@@ -188,17 +198,11 @@ export default function App() {
                 <ChevronRight className="w-4 h-4 mr-2" /> See projects
               </Button>
 
-              <a
-                className={buttonVariants({ variant: "outline" })}
-                href={LINKS.github} target="_blank" rel="noreferrer"
-              >
+              <a className={btnOutline} href={LINKS.github} target="_blank" rel="noreferrer">
                 <Github className="w-4 h-4 mr-2" /> GitHub
               </a>
 
-              <a
-                className={buttonVariants({ variant: "outline" })}
-                href={LINKS.linkedin} target="_blank" rel="noreferrer"
-              >
+              <a className={btnOutline} href={LINKS.linkedin} target="_blank" rel="noreferrer">
                 <Linkedin className="w-4 h-4 mr-2" /> LinkedIn
               </a>
             </div>
@@ -230,7 +234,7 @@ export default function App() {
                 </div>
               </div>
               <div className="mt-4 flex gap-2">
-                <a className={buttonVariants()} href={LINKS.email}>
+                <a className={btn} href={LINKS.email}>
                   <Mail className="w-4 h-4 mr-2" /> Contact
                 </a>
               </div>
@@ -349,11 +353,11 @@ export default function App() {
                 <p className="text-sm text-muted-foreground">Open to internships and collaborations in systems, ML, and intelligent tooling.</p>
               </div>
               <div className="flex gap-2">
-                <a className={buttonVariants()} href={LINKS.email}><Mail className="w-4 h-4 mr-2" /> Email</a>
-                <a className={buttonVariants({ variant: "outline" })} href={LINKS.linkedin} target="_blank" rel="noreferrer">
+                <a className={btn} href={LINKS.email}><Mail className="w-4 h-4 mr-2" /> Email</a>
+                <a className={btnOutline} href={LINKS.linkedin} target="_blank" rel="noreferrer">
                   <Linkedin className="w-4 h-4 mr-2" /> LinkedIn
                 </a>
-                <a className={buttonVariants({ variant: "outline" })} href={LINKS.github} target="_blank" rel="noreferrer">
+                <a className={btnOutline} href={LINKS.github} target="_blank" rel="noreferrer">
                   <Github className="w-4 h-4 mr-2" /> GitHub
                 </a>
               </div>
