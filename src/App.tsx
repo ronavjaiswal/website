@@ -5,7 +5,7 @@ import {
   ChevronRight, Sparkles,
 } from "lucide-react";
 import { Card, CardContent } from "./components/ui/card";
-import { Button } from "./components/ui/button";
+import { Button, buttonVariants } from "./components/ui/button";
 import { Badge } from "./components/ui/badge";
 
 // ---------- Smooth scroll helper ----------
@@ -129,11 +129,6 @@ const EXPERIENCE = [
   },
 ];
 
-const LEADERSHIP = [
-  { role: "Core Member", org: "CMU Student Advisory Committee (SCS)", time: "Aug 2024 – Present" },
-  { role: "Tartan Ambassador", org: "Carnegie Mellon University", time: "Jan 2025 – May 2025" },
-];
-
 const EDUCATION = {
   school: "Carnegie Mellon University",
   degree: "B.S. in Computer Science",
@@ -192,16 +187,20 @@ export default function App() {
               <Button onClick={() => smoothScrollTo("projects")}>
                 <ChevronRight className="w-4 h-4 mr-2" /> See projects
               </Button>
-              <Button variant="outline" asChild>
-                <a href={LINKS.github} target="_blank" rel="noreferrer">
-                  <Github className="w-4 h-4 mr-2" /> GitHub
-                </a>
-              </Button>
-              <Button variant="outline" asChild>
-                <a href={LINKS.linkedin} target="_blank" rel="noreferrer">
-                  <Linkedin className="w-4 h-4 mr-2" /> LinkedIn
-                </a>
-              </Button>
+
+              <a
+                className={buttonVariants({ variant: "outline" })}
+                href={LINKS.github} target="_blank" rel="noreferrer"
+              >
+                <Github className="w-4 h-4 mr-2" /> GitHub
+              </a>
+
+              <a
+                className={buttonVariants({ variant: "outline" })}
+                href={LINKS.linkedin} target="_blank" rel="noreferrer"
+              >
+                <Linkedin className="w-4 h-4 mr-2" /> LinkedIn
+              </a>
             </div>
 
             <div className="mt-6 flex flex-wrap gap-2 justify-center">
@@ -231,9 +230,9 @@ export default function App() {
                 </div>
               </div>
               <div className="mt-4 flex gap-2">
-                <Button asChild className="w-full">
-                  <a href={LINKS.email}><Mail className="w-4 h-4 mr-2" /> Contact</a>
-                </Button>
+                <a className={buttonVariants()} href={LINKS.email}>
+                  <Mail className="w-4 h-4 mr-2" /> Contact
+                </a>
               </div>
             </CardContent>
           </Card>
@@ -350,15 +349,13 @@ export default function App() {
                 <p className="text-sm text-muted-foreground">Open to internships and collaborations in systems, ML, and intelligent tooling.</p>
               </div>
               <div className="flex gap-2">
-                <Button asChild>
-                  <a href={LINKS.email}><Mail className="w-4 h-4 mr-2" /> Email</a>
-                </Button>
-                <Button variant="outline" asChild>
-                  <a href={LINKS.linkedin} target="_blank" rel="noreferrer"><Linkedin className="w-4 h-4 mr-2" /> LinkedIn</a>
-                </Button>
-                <Button variant="outline" asChild>
-                  <a href={LINKS.github} target="_blank" rel="noreferrer"><Github className="w-4 h-4 mr-2" /> GitHub</a>
-                </Button>
+                <a className={buttonVariants()} href={LINKS.email}><Mail className="w-4 h-4 mr-2" /> Email</a>
+                <a className={buttonVariants({ variant: "outline" })} href={LINKS.linkedin} target="_blank" rel="noreferrer">
+                  <Linkedin className="w-4 h-4 mr-2" /> LinkedIn
+                </a>
+                <a className={buttonVariants({ variant: "outline" })} href={LINKS.github} target="_blank" rel="noreferrer">
+                  <Github className="w-4 h-4 mr-2" /> GitHub
+                </a>
               </div>
             </CardContent>
           </Card>
